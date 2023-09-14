@@ -7,11 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-boot-intro_03" />
-        <module name="pathfinder" />
+        <module name="mobilele" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mobilele" target="17" />
+      <module name="pathfinder" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
