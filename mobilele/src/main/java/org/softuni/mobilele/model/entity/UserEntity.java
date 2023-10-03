@@ -7,7 +7,7 @@ import org.apache.catalina.User;
 @Table(name="users")
 public class UserEntity extends BaseEntity {
 
-
+    @Column(unique = true)
     private String email;
 
     private String password;
