@@ -1,8 +1,6 @@
 package org.softuni.mobilele.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.softuni.mobilele.model.enums.EngineEnum;
 import org.softuni.mobilele.model.enums.TransmissionEnum;
@@ -18,8 +16,10 @@ public class OfferEntity extends BaseEntity {
     @JdbcTypeCode(Types.VARCHAR)
     private UUID uuid;
 
+    @Enumerated(EnumType.STRING)
     private TransmissionEnum transmission;
 
+    @Enumerated(EnumType.STRING)
     private EngineEnum engine;
 
     private String description;
