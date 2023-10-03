@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.softuni</groupId>
-    <artifactId>mobilele</artifactId>
+    <artifactId>pathfinder</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>pathfinder</name>
     <description>pathfinder</description>
