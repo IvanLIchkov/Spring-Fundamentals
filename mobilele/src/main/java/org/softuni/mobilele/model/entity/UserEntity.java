@@ -1,33 +1,23 @@
 package org.softuni.mobilele.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.apache.catalina.User;
 
 @Entity
-public class UserEntity {
+@Table(name="users")
+public class UserEntity extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     private String email;
+
     private String password;
 
     private String firstName;
+
     private String lastName;
+
     private boolean active;
 
-    public UserEntity setId(Long id) {
-        this.id = id;
-        return this;
-    }
-
-    public Long getId() {
-        return id;
-    }
 
     public String getEmail() {
         return email;
