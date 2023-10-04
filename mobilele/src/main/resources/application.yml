@@ -13,9 +13,15 @@ spring:
     #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: update
+    defer-datasource-initialization: true
   sql:
     init:
       mode: never
+
+mvc:
+  hiddenmethod:
+    filter:
+      enabled: true
   #Cloudinary Properties
   #cloudinary:
   #api-key:
