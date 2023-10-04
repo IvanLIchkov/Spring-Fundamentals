@@ -1,17 +1,18 @@
-package com.example.pathfinder.services;
+package com.example.pathfinder.services.impl;
 
 import com.example.pathfinder.models.entities.Route;
 import com.example.pathfinder.repositories.RouteRepository;
+import com.example.pathfinder.services.RoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RouteService {
+public class RouteServiceImpl implements RoutService {
 
-    private RouteRepository routeRepository;
+    private final RouteRepository routeRepository;
 
     @Autowired
-    public RouteService(RouteRepository routeRepository) {
+    public RouteServiceImpl(RouteRepository routeRepository) {
         this.routeRepository = routeRepository;
     }
 

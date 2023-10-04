@@ -1,6 +1,7 @@
 package com.example.pathfinder.models.entities;
 
 import com.example.pathfinder.models.enums.LevelEnum;
+import com.example.pathfinder.models.enums.RoleTypes;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
