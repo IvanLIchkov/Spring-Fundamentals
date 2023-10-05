@@ -1,12 +1,12 @@
 package com.example.pathfinder.web;
 
 import com.example.pathfinder.models.dtos.UserRegistrationDto;
-import com.example.pathfinder.services.impl.UserServiceImpl;
+import com.example.pathfinder.services.AuthenticationService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -15,10 +15,19 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/users")
 public class RegistrationController {
 
+    private AuthenticationService authService;
+
+    public RegistrationController(AuthenticationService authService) {
+        this.authService = authService;
+    }
+
+    @ModelAttribute("userRegistrationDto")
+    public UserRegistrationDto initForm(){
+        return new UserRegistrationDto();
+    }
 
     @GetMapping("/register")
-    public String register(Model model){
-        model.addAttribute("userRegistrationDto", new UserRegistrationDto());
+    public String register(){
         return "register";
     }
 
@@ -26,6 +35,7 @@ public class RegistrationController {
     public String doRegister(@Valid UserRegistrationDto userRegistrationDto,
                              BindingResult bindingResult,
                              RedirectAttributes redirectAttributes){
+
         if(bindingResult.hasErrors()){
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegistrationDto",bindingResult);
             redirectAttributes.addFlashAttribute("userRegistrationDto", userRegistrationDto);
@@ -33,6 +43,7 @@ public class RegistrationController {
             return "redirect:/users/register";
 
         }
+        this.authService.register(userRegistrationDto);
         return "redirect:/users/login";
     }
 }
