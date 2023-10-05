@@ -13,22 +13,27 @@
 
 <div class="container">
     <h2 class="text-center text-white">Login</h2>
-    <form method="POST" 
+    <form   th:action="@{/users/login}"
+            th:method="POST"
+            th:object="${userLoginDto}"
           class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
         <div class="form-group">
-            <label for="email" class="text-white font-weight-bold">Username</label>
-            <input id="email" name="email" type="text"
+            <label for="email" class="text-white font-weight-bold">Email</label>
+            <input th:field="*{email}"
+                    id="email" name="email" type="text"
                    class="form-control"
                    placeholder="Email"/>
         </div>
         <div class="form-group">
             <label for="password" class="text-white font-weight-bold">Password</label>
-            <input  id="password" name="password" type="password" class="form-control"
+            <input th:field="*{password}"
+                    th:errorclass="is-invalid"
+                    id="password" name="password" type="password" class="form-control"
                    placeholder="Password"/>
 
         </div>
         
-        <p class="errors alert alert-danger">
+        <p class="invalid-feedback errors alert alert-danger" th:if="${#fields.hasAnyErrors()}">
             Invalid username or password.
         </p>
 

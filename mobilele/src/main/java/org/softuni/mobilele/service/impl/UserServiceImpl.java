@@ -1,5 +1,6 @@
 package org.softuni.mobilele.service.impl;
 
+import org.softuni.mobilele.model.dto.UserMapper;
 import org.softuni.mobilele.model.dto.UserLoginDTO;
 import org.softuni.mobilele.model.dto.UserRegistrationDTO;
 import org.softuni.mobilele.model.entity.UserEntity;
@@ -8,8 +9,7 @@ import org.softuni.mobilele.service.UserService;
 import org.softuni.mobilele.util.CurrentUser;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,13 +17,21 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final CurrentUser currentUser;
+    private final UserMapper userMapper;
 
     public UserServiceImpl(UserRepository userRepository,
                            PasswordEncoder passwordEncoder,
-                           CurrentUser currentUser) {
+                           CurrentUser currentUser,
+                           UserMapper userMapper) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.currentUser = currentUser;
+        this.userMapper = userMapper;
+    }
+
+    @ModelAttribute("userLogin")
+    public UserLoginDTO userLoginDTO(){
+        return new UserLoginDTO();
     }
 
     @Override
@@ -34,13 +42,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean loginUser(UserLoginDTO userLoginDTO) {
         var userEntity = userRepository
-                .findByEmail(userLoginDTO.email())
+                .getFirstByEmail(userLoginDTO.getEmail())
                 .orElse(null);
 
         boolean loginSuccess = false;
 
         if (userEntity != null){
-            String rawPassword = userLoginDTO.password();
+            String rawPassword = userLoginDTO.getPassword();
             String encodedPassword = userEntity.getPassword();
 
             loginSuccess = passwordEncoder.matches(rawPassword, encodedPassword);
@@ -66,11 +74,6 @@ public class UserServiceImpl implements UserService {
     }
 
     private UserEntity map(UserRegistrationDTO userRegistrationDTO){
-        return new UserEntity()
-                .setActive(true)
-                .setFirstName(userRegistrationDTO.firstName())
-                .setLastName(userRegistrationDTO.lastName())
-                .setEmail(userRegistrationDTO.email())
-                .setPassword(passwordEncoder.encode(userRegistrationDTO.password()));
+        return userMapper.userDtoToUserEntity(userRegistrationDTO);
     }
 }
