@@ -1,9 +1,7 @@
 package org.softuni.mobilele.web;
 
-import org.softuni.mobilele.model.dto.CreateOfferDTO;
+import org.softuni.mobilele.model.dto.AddOfferDto;
 import org.softuni.mobilele.model.enums.EngineEnum;
-import org.softuni.mobilele.model.enums.TransmissionEnum;
-import org.softuni.mobilele.repository.ModelRepository;
 import org.softuni.mobilele.service.BrandService;
 import org.softuni.mobilele.service.OfferService;
 import org.springframework.stereotype.Controller;
@@ -28,6 +26,10 @@ public class OfferController {
 //        return TransmissionEnum.values();
 //    }
 
+    @ModelAttribute("addOfferDto")
+    public AddOfferDto addOfferDto(){
+        return new AddOfferDto();
+    }
 
     @ModelAttribute("engine")
     public EngineEnum[] engine(){
@@ -41,14 +43,14 @@ public class OfferController {
 
     @GetMapping("/add")
     public String add(Model model){
-        model.addAttribute("brands", brandService.getAllBrands());
+
         return "offer-add";
     }
 
     @PostMapping("/add")
-    public String add(CreateOfferDTO createOfferDTO){
+    public String add(AddOfferDto addOfferDto){
 
-        offerService.createOffer(createOfferDTO);
+        offerService.createOffer(addOfferDto);
 
         return "index";
     }
