@@ -9,6 +9,13 @@
         <module name="spring-boot-intro_03" />
         <module name="pathfinder" />
       </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.5.5.Final/897f6f115930b936287bef552bf5fe28cc64717d/mapstruct-processor-1.5.5.Final.jar" />
+        </processorPath>
+        <module name="LinkedOut.main" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="mobilele (1)" target="17" />
