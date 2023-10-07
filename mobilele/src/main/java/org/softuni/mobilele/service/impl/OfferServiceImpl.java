@@ -1,5 +1,7 @@
 package org.softuni.mobilele.service.impl;
 
+import org.softuni.mobilele.model.dto.AddOfferDto;
+import org.softuni.mobilele.model.dto.CreateOfferDTO;
 import org.softuni.mobilele.repository.OfferRepository;
 import org.softuni.mobilele.service.OfferService;
 import org.springframework.stereotype.Service;
@@ -15,9 +17,14 @@ public class OfferServiceImpl implements OfferService {
         this.offerRepository = offerRepository;
     }
 
+//    @Override
+//    public UUID createOffer(CreateOfferDTO createOfferDTO) {
+//        //TODO -> create offer
+//        throw new UnsupportedOperationException("Coming soon!");
+//    }
+
     @Override
-    public UUID createOffer(CreateOfferDTO createOfferDTO) {
-        //TODO -> create offer
-        throw new UnsupportedOperationException("Coming soon!");
+    public UUID createOffer(AddOfferDto addOfferDto) {
+        return null;
     }
 }

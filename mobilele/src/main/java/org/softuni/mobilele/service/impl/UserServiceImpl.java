@@ -29,10 +29,6 @@ public class UserServiceImpl implements UserService {
         this.userMapper = userMapper;
     }
 
-    @ModelAttribute("userLogin")
-    public UserLoginDTO userLoginDTO(){
-        return new UserLoginDTO();
-    }
 
     @Override
     public void registerUser(UserRegistrationDTO userRegistrationDTO) {

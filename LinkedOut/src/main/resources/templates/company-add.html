@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head}"></head>
+
+<body>
+
+<header th:replace="~{fragments/navBar}"></header>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <main class="jumbotron text-center rounded col-md-8 align-self-center">
+        <div class="justify-content-center">
+            <h1>Add Company</h1>
+        </div>
+        <form class="m-md-auto w-50 text-center"
+                th:method="POST"
+                th:action="@{/companies/add}"
+                th:object="${addCompanyDto}">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                        th:name="name"
+                        th:field="*{name}"
+                        th:errorclass="is-invalid"
+                        type="text" class="form-control text-center" id="name" aria-describedby="nameHelp"
+				name="name"/>
+                <small class="invalid-feedback" th:errors="*{name}">Error message</small>
+            </div>
+
+            <div class="form-group">
+                <label for="town">Town</label>
+                <input th:field="*{town}"
+                       th:name="town"
+                       th:errorclass="is-invalid"
+                        type="text" class="form-control text-center" id="town" aria-describedby="town"
+				name="town"/>
+                <small class="invalid-feedback"  th:errors="*{town}">Error message</small>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input
+                        th:field="*{description}"
+                        th:name="description"
+                        th:errorclass="is-invalid"
+                        type="text" class="form-control text-center"
+				id="description" aria-describedby="description" name="description"/>
+                <small class="invalid-feedback" th:errors="*{description}">Error message</small>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Budget</label>
+                <input
+                        th:field="*{budget}"
+                        th:name="budget"
+                        th:errorclass="is-invalid"
+                        type="number" min="0" class="form-control text-center"
+				id="budget" aria-describedby="town" name="town"/>
+                <small class="invalid-feedback" th:errors="*{budget}">Budget</small>
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Add Company</button>
+        </form>
+    </main>
+</div>
+
+<footer id="footer">
+    <div class="container-fluid bg-transparent rounded">
+        <div class="text-white p-2 text-center">&copy; Spring Team 2020. All rights reserved.</div>
+    </div>
+</footer>
+</body>
+</html>
