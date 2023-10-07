@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BattleShips/BattleShips.iml" filepath="$PROJECT_DIR$/BattleShips/BattleShips.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LinkedOut.main.iml" filepath="$PROJECT_DIR$/.idea/modules/LinkedOut.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring-Fundamentals.iml" filepath="$PROJECT_DIR$/.idea/Spring-Fundamentals.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobilele.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mobilele.main.iml" />
