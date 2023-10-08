@@ -72,13 +72,13 @@
                 <div class="form-group row">
                     <label for="category" class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-10">
-                        <select th:field="*{category}"
+                        <select th:field="*{categoryId}"
                                 th:errorclass="is-invalid"
                                 id="category" name="category" class="custom-select"
                                 aria-describedby="categoryHelpInline">
-                            <option th:each="c : ${shipCategory}"  th:value="${c}" th:text="${c.name}">Category</option>
+                            <option th:each="c : ${shipCategory}"  th:value="${c.id}" th:text="${c.name}">Category</option>
                         </select>
-                        <small th:errors="*{category}" id="categoryHelpInline" class="bg-danger text-light rounded">
+                        <small th:errors="*{categoryId}" id="categoryHelpInline" class="bg-danger text-light rounded">
                             You must select the category.
                         </small>
                     </div>

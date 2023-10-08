@@ -1,5 +1,6 @@
 package com.exam.battleships.service;
 
+import com.exam.battleships.models.dtos.AddShipDto;
 import com.exam.battleships.models.dtos.LoginDto;
 import com.exam.battleships.models.dtos.UserRegisterDto;
 
@@ -10,4 +11,5 @@ public interface UserService {
     boolean login(LoginDto loginDto);
 
     void logOut();
+
 }

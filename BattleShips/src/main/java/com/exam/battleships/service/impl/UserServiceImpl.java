@@ -1,5 +1,6 @@
 package com.exam.battleships.service.impl;
 
+import com.exam.battleships.models.dtos.AddShipDto;
 import com.exam.battleships.models.dtos.LoginDto;
 import com.exam.battleships.models.entities.User;
 import com.exam.battleships.models.dtos.UserRegisterDto;
@@ -54,4 +55,5 @@ boolean loginSuccess = false;
     public void logOut(){
         this.currentUser.logout();
     }
+
 }

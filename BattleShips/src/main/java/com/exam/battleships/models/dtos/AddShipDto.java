@@ -1,11 +1,10 @@
 package com.exam.battleships.models.dtos;
 
 import com.exam.battleships.models.entities.Category;
-import jakarta.persistence.Column;
-import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
+
 
 public class AddShipDto {
 
@@ -25,7 +24,7 @@ public class AddShipDto {
     private LocalDate created;
 
     @NotNull(message = "Category must be selected!")
-    private Category category;
+    private Long categoryId;
 
     public String getName() {
         return name;
@@ -59,11 +58,11 @@ public class AddShipDto {
         this.created = created;
     }
 
-    public Category getCategory() {
-        return category;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 }

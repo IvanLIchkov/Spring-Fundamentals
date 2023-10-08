@@ -3,6 +3,7 @@ package com.exam.battleships.web;
 import com.exam.battleships.models.dtos.AddShipDto;
 import com.exam.battleships.models.entities.Category;
 import com.exam.battleships.repositories.CategoryRepository;
+import com.exam.battleships.service.ShipService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -19,9 +20,11 @@ import java.util.List;
 public class ShipController {
 
     private final CategoryRepository categoryRepository;
+    private final ShipService shipService;
 
-    public ShipController(CategoryRepository categoryRepository) {
+    public ShipController(CategoryRepository categoryRepository, ShipService shipService)     {
         this.categoryRepository = categoryRepository;
+        this.shipService = shipService;
     }
 
     @ModelAttribute("addShipDto")
@@ -49,6 +52,8 @@ public class ShipController {
             redirectAttributes.addFlashAttribute("addShipDto", addShipDto);
             return "redirect:/ships/add";
         }
+
+        this.shipService.addShip(addShipDto);
         return "redirect:/home";
     }
 }
