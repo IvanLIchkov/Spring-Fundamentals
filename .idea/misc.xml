@@ -1,9 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/BattleShips" />
     <file type="web" url="file://$PROJECT_DIR$/LinkedOut" />
     <file type="web" url="file://$PROJECT_DIR$/mobilele" />
+    <file type="web" url="file://$PROJECT_DIR$/ShoppingList" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
