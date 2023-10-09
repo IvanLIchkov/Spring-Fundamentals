@@ -41,7 +41,7 @@ public class HomeController {
         if(this.userService.isLogged()){
             return "/home";
         }
-        return "redirect:/";
+        return "/index";
     }
 
     @GetMapping("/buy/{id}")
