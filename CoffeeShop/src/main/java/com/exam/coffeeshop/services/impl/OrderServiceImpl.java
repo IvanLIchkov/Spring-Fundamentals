@@ -29,7 +29,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void addOrder(AddOrderDto addOrderDto) {
         Order order = this.orderMapper.addOrderDtoToOrderEntity(addOrderDto);
-        order.setCategory(this.categoryService.getCategoryById(addOrderDto.getCategoryId()));
+//        order.setCategory(this.categoryService.getCategoryById(addOrderDto.getCategoryId()));
         order.setEmployee(this.userService.getUserById());
         this.orderRepository.save(order);
     }

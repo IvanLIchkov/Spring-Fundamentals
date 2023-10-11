@@ -1,0 +1,27 @@
+<header th:fragments="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="nav-link text-white active h5" th:if="${@currentUser.id == null}" th:href="@{/login}">Andrey's</a>
+        <a class="nav-link text-white active h5" th:if="${@currentUser.id != null}" th:href="@{/home}">Andrey's</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+            <ul class="navbar-nav row">
+                <li th:if="${@currentUser.id != null}" class="col-md-4">
+                    <a class="nav-link text-white active h6" th:href="@{/add}">Add Item</a>
+                </li>
+                <li th:if="${@currentUser.id != null}" class="col-md-4">
+                    <a class="nav-link text-white active h6" th:href="@{/logout}">Logout</a>
+                </li>
+
+                <li th:if="${@currentUser.id == null}" class="nav-item col-md-4">
+                    <a class="nav-link text-white active h6" th:href="@{/login}">Login</a>
+                </li>
+                <li th:if="${@currentUser.id == null}" class="nav-item col-md-4">
+                    <a class="nav-link text-white active h6" th:href="@{/register}" >Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
